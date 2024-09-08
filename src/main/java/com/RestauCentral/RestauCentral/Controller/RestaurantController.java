@@ -24,7 +24,7 @@ public class RestaurantController {
         return restaurantService.getRestaurantById(id);
     }
 
-    @PostMapping
+    @PostMapping("/add")
     public Restaurant addRestaurant(@RequestBody Restaurant restaurant) {
         return restaurantService.addRestaurant(restaurant);
     }
