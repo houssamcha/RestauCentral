@@ -7,7 +7,7 @@ import { Restaurant } from 'src/app/Model/restaurant.model';
   templateUrl: './ajouter-restaurant.component.html',
   styleUrls: ['./ajouter-restaurant.component.css']
 })
-export class RestaurantAddComponent {
+export class AjouterRestaurantComponent {
   restaurant: Restaurant = {
     name: '',
     address: '',

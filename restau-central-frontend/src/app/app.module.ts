@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { FormsModule } from '@angular/forms'; // Importer FormsModule pour ngModel
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RestaurantListComponent } from './restaurant-list/restaurant-list.component';
-import { HttpClientModule } from '@angular/common/http';
 import { AjouterRestaurantComponent } from './ajouter-restaurant/ajouter-restaurant.component';
 
 @NgModule({
@@ -15,7 +14,7 @@ import { AjouterRestaurantComponent } from './ajouter-restaurant/ajouter-restaur
   ],
   imports: [
     BrowserModule,
-    HttpClientModule,
+    FormsModule,
     AppRoutingModule
   ],
   providers: [],
