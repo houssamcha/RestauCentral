@@ -1,0 +1,39 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #2c3e50;
+  }
+  
+  .restaurant-card {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .restaurant-card h3 {
+    color: #34495e;
+    margin-bottom: 10px;
+  }
+  
+  .restaurant-card p {
+    margin: 5px 0;
+    font-size: 16px;
+  }
+  
+  strong {
+    color: #2c3e50;
+  }
+  
+  p {
+    color: #7f8c8d;
+  }
+  
+  

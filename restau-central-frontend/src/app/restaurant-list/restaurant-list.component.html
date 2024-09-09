@@ -1,14 +1,17 @@
-<p>restaurant-list works!</p><div *ngIf="restaurants.length > 0">
-    <ul>
-      <li *ngFor="let restaurant of restaurants">
-        <h3>{{ restaurant.name }}</h3>
-        <p>Address: {{ restaurant.address }}</p>
-        <p>Phone: {{ restaurant.phone }}</p>
-        <p>Commandes: {{ restaurant.commandes }}</p>
-        <p>Service Livraison: {{ restaurant.serviceLivraison }}</p>
-      </li>
-    </ul>
+<div class="container">
+  <h2>Liste des Restaurants</h2>
+  
+  <div *ngIf="restaurants.length > 0">
+    <div class="restaurant-card" *ngFor="let restaurant of restaurants">
+      <h3>{{ restaurant.name }}</h3>
+      <p><strong>Adresse:</strong> {{ restaurant.address }}</p>
+      <p><strong>Téléphone:</strong> {{ restaurant.phone }}</p>
+      <p><strong>Commandes:</strong> {{ restaurant.commandes }}</p>
+      <p><strong>Service Livraison:</strong> {{ restaurant.serviceLivraison }}</p>
+    </div>
   </div>
+
   <div *ngIf="restaurants.length === 0">
-    <p>No restaurants available.</p>
-  </div>  
+    <p>Aucun restaurant disponible.</p>
+  </div>
+</div>
