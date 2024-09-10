@@ -1,21 +1,35 @@
-import { Component, OnInit } from '@angular/core';
-import { RestaurantService } from '../services/restaurant.services';
-import { Restaurant } from '../Model/restaurant.model';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { RestaurantService } from 'src/app/services/restaurant.services';
+import { Restaurant } from 'src/app/Model/restaurant.model';
 
 @Component({
   selector: 'app-restaurant-list',
   templateUrl: './restaurant-list.component.html',
   styleUrls: ['./restaurant-list.component.css']
 })
-export class RestaurantListComponent implements OnInit {
+export class RestaurantListComponent {
   restaurants: Restaurant[] = [];
 
-  constructor(private restaurantService: RestaurantService) { }
+  constructor(private restaurantService: RestaurantService, private router: Router) {}
 
   ngOnInit(): void {
+    this.loadRestaurants();
+  }
+
+  loadRestaurants(): void {
     this.restaurantService.getRestaurants().subscribe(
-      (data: Restaurant[]) => this.restaurants = data,
-      (error) => console.error('Error fetching restaurants', error)
+      (data) => {
+        this.restaurants = data;
+      },
+      (error) => {
+        console.error('Erreur lors du chargement des restaurants', error);
+      }
     );
   }
+
+  navigateToAdd(): void {
+    this.router.navigate(['/add-restaurant']);
+  }
 }
+
