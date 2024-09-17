@@ -32,5 +32,19 @@ export class RestaurantListComponent {
     this.router.navigate(['/add-restaurant']);
   }
   
+  deleteRestaurant(id: number): void {
+    if (confirm('Êtes-vous sûr de vouloir supprimer ce restaurant ?')) {
+      this.restaurantService.deleteRestaurant(id).subscribe(
+        () => {
+          console.log('Restaurant supprimé avec succès');
+          this.loadRestaurants();  // Recharger la liste après suppression
+        },
+        (error) => {
+          console.error('Erreur lors de la suppression du restaurant', error);
+        }
+      );
+    }
+  }
+
 }
 
