@@ -31,5 +31,6 @@ export class RestaurantListComponent {
   navigateToAdd(): void {
     this.router.navigate(['/add-restaurant']);
   }
+  
 }
 

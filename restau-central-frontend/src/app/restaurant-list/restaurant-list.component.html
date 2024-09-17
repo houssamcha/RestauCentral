@@ -1,21 +1,22 @@
-<div class="container">
-  <h2>Liste des Restaurants</h2>
+<div class="container mx-auto p-6">
+  <h2 class="text-2xl font-semibold mb-4">Liste des Restaurants</h2>
   
-  <button (click)="navigateToAdd()">Ajouter un Restaurant</button>
-  
+  <button (click)="navigateToAdd()" class="mb-4 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+    Ajouter un restaurant
+  </button>
+
   <div *ngIf="restaurants.length > 0">
-    <ul>
-      <li *ngFor="let restaurant of restaurants">
-        <h3>{{ restaurant.name }}</h3>
-        <p>Adresse: {{ restaurant.address }}</p>
-        <p>Téléphone: {{ restaurant.phone }}</p>
-        <p>Commandes: {{ restaurant.commandes }}</p>
-        <p>Service Livraison: {{ restaurant.serviceLivraison }}</p>
+    <ul class="space-y-4">
+      <li *ngFor="let restaurant of restaurants" class="p-4 border border-gray-200 rounded-md shadow-sm">
+        <h3 class="text-xl font-semibold mb-2">{{ restaurant.name }}</h3>
+        <p class="text-gray-700"><strong>Adresse:</strong> {{ restaurant.address }}</p>
+        <p class="text-gray-700"><strong>Téléphone:</strong> {{ restaurant.phone }}</p>
+        <p class="text-gray-700"><strong>Commandes:</strong> {{ restaurant.commandes }}</p>
+        <p class="text-gray-700"><strong>Service Livraison:</strong> {{ restaurant.serviceLivraison }}</p>
       </li>
     </ul>
   </div>
   <div *ngIf="restaurants.length === 0">
-    <p>Aucun restaurant disponible.</p>
+    <p class="text-gray-700">Aucun restaurant disponible.</p>
   </div>
 </div>
-

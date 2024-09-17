@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RestaurantService } from 'src/app/services/restaurant.services';
 import { Restaurant } from 'src/app/Model/restaurant.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-restaurant-add',
@@ -16,14 +17,16 @@ export class AjouterRestaurantComponent {
     serviceLivraison: ''
   };
 
-  constructor(private restaurantService: RestaurantService) {}
+  constructor(private restaurantService: RestaurantService , private router : Router) {}
 
-  // The function triggered when the form is submitted
+  
   onSubmit() {
     this.restaurantService.addRestaurant(this.restaurant).subscribe(
       (response) => {
         console.log('Restaurant ajouté avec succès !', response);
-        // Reset form or redirect user as needed
+
+        this.router.navigate(['/restaurant-list']);
+
         this.restaurant = {
           name: '',
           address: '',

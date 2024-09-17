@@ -1,32 +1,37 @@
-<div class="container">
-  <h2>Ajouter un Restaurant</h2>
+<div class="container mx-auto p-6">
+  <h2 class="text-2xl font-semibold mb-6">Ajouter un Restaurant</h2>
   
-  <form (ngSubmit)="onSubmit()" #restaurantForm="ngForm">
+  <form (ngSubmit)="onSubmit()" #restaurantForm="ngForm" class="space-y-4">
     <div class="form-group">
-      <label for="name">Nom du restaurant:</label>
-      <input type="text" id="name" [(ngModel)]="restaurant.name" name="name" required class="form-control" />
+      <label for="name" class="block text-sm font-medium text-gray-700">Nom du restaurant:</label>
+      <input type="text" id="name" [(ngModel)]="restaurant.name" name="name" required 
+             class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
     </div>
 
     <div class="form-group">
-      <label for="address">Adresse:</label>
-      <input type="text" id="address" [(ngModel)]="restaurant.address" name="address" required class="form-control" />
+      <label for="address" class="block text-sm font-medium text-gray-700">Adresse:</label>
+      <input type="text" id="address" [(ngModel)]="restaurant.address" name="address" required 
+             class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
     </div>
 
     <div class="form-group">
-      <label for="phone">Téléphone:</label>
-      <input type="text" id="phone" [(ngModel)]="restaurant.phone" name="phone" required class="form-control" />
+      <label for="phone" class="block text-sm font-medium text-gray-700">Téléphone:</label>
+      <input type="text" id="phone" [(ngModel)]="restaurant.phone" name="phone" required 
+             class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
     </div>
 
     <div class="form-group">
-      <label for="commandes">Commandes:</label>
-      <input type="text" id="commandes" [(ngModel)]="restaurant.commandes" name="commandes" class="form-control" />
+      <label for="commandes" class="block text-sm font-medium text-gray-700">Commandes:</label>
+      <input type="text" id="commandes" [(ngModel)]="restaurant.commandes" name="commandes" 
+             class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
     </div>
 
     <div class="form-group">
-      <label for="serviceLivraison">Service Livraison:</label>
-      <input type="text" id="serviceLivraison" [(ngModel)]="restaurant.serviceLivraison" name="serviceLivraison" class="form-control" />
+      <label for="serviceLivraison" class="block text-sm font-medium text-gray-700">Service Livraison:</label>
+      <input type="text" id="serviceLivraison" [(ngModel)]="restaurant.serviceLivraison" name="serviceLivraison" 
+             class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
     </div>
 
-    <button type="submit" class="btn btn-primary" [disabled]="!restaurantForm.form.valid">Ajouter</button>
+    <button type="submit" class="w-full inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" [disabled]="!restaurantForm.form.valid">Ajouter</button>
   </form>
 </div>
