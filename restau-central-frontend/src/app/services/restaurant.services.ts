@@ -19,4 +19,11 @@ export class RestaurantService {
   deleteRestaurant(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
+  getRestaurantById(id: number): Observable<Restaurant> {
+    return this.http.get<Restaurant>(`${this.apiUrl}/${id}`);
+  }
+
+  updateRestaurant(restaurant: Restaurant): Observable<Restaurant> {
+    return this.http.put<Restaurant>(`${this.apiUrl}/${restaurant.id}`, restaurant);
+  }
 }
