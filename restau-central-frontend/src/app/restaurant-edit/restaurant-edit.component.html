@@ -1,31 +1,39 @@
-<p>restaurant-edit works!</p>
-<div class="container mx-auto p-6">
-    <h2 class="text-2xl font-semibold mb-4">Modifier le Restaurant</h2>
-  
-    <form (ngSubmit)="onSubmit()" #editForm="ngForm">
-      <div class="mb-4">
-        <label for="name" class="block text-gray-700">Nom</label>
-        <input type="text" id="name" [(ngModel)]="restaurant.name" name="name" class="form-input" required>
-      </div>
-      <div class="mb-4">
-        <label for="address" class="block text-gray-700">Adresse</label>
-        <input type="text" id="address" [(ngModel)]="restaurant.address" name="address" class="form-input" required>
-      </div>
-      <div class="mb-4">
-        <label for="phone" class="block text-gray-700">Téléphone</label>
-        <input type="text" id="phone" [(ngModel)]="restaurant.phone" name="phone" class="form-input" required>
-      </div>
-      <div class="mb-4">
-        <label for="commandes" class="block text-gray-700">Commandes</label>
-        <input type="text" id="commandes" [(ngModel)]="restaurant.commandes" name="commandes" class="form-input" required>
-      </div>
-      <div class="mb-4">
-        <label for="serviceLivraison" class="block text-gray-700">Service Livraison</label>
-        <input type="text" id="serviceLivraison" [(ngModel)]="restaurant.serviceLivraison" name="serviceLivraison" class="form-input" required>
-      </div>
-      <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 rounded">
+<div class="max-w-md mx-auto p-6 bg-white rounded-lg shadow-md">
+  <h2 class="text-2xl font-bold text-gray-900 mb-4">Modifier le Restaurant</h2>
+
+  <form (ngSubmit)="onSubmit()" #editForm="ngForm" class="space-y-4">
+    <div>
+      <label for="name" class="block text-sm font-medium text-gray-700">Nom</label>
+      <input type="text" id="name" [(ngModel)]="restaurant.name" name="name" class="w-full mt-1 border border-gray-300 p-2 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500" required>
+    </div>
+
+    <div>
+      <label for="address" class="block text-sm font-medium text-gray-700">Adresse</label>
+      <input type="text" id="address" [(ngModel)]="restaurant.address" name="address" class="w-full mt-1 border border-gray-300 p-2 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500" required>
+    </div>
+
+    <div>
+      <label for="phone" class="block text-sm font-medium text-gray-700">Téléphone</label>
+      <input type="text" id="phone" [(ngModel)]="restaurant.phone" name="phone" class="w-full mt-1 border border-gray-300 p-2 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500" required>
+    </div>
+
+    <div>
+      <label for="commandes" class="block text-sm font-medium text-gray-700">Commandes</label>
+      <input type="text" id="commandes" [(ngModel)]="restaurant.commandes" name="commandes" class="w-full mt-1 border border-gray-300 p-2 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500" required>
+    </div>
+
+    <div>
+      <label for="serviceLivraison" class="block text-sm font-medium text-gray-700">Service Livraison</label>
+      <input type="text" id="serviceLivraison" [(ngModel)]="restaurant.serviceLivraison" name="serviceLivraison" class="w-full mt-1 border border-gray-300 p-2 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500" required>
+    </div>
+
+    <div class="flex justify-between">
+      <button type="submit" class="bg-indigo-600 text-white font-bold py-2 px-4 rounded-md shadow-sm hover:bg-indigo-700 focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
         Enregistrer
       </button>
-    </form>
-  </div>
-  
+      <button type="button" (click)="goBack()" class="bg-gray-600 text-white font-bold py-2 px-4 rounded-md shadow-sm hover:bg-gray-700 focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+        Retour
+      </button>
+    </div>
+  </form>
+</div>
