@@ -41,4 +41,8 @@ export class RestaurantEditComponent implements OnInit {
       (error) => console.error('Erreur lors de la mise à jour du restaurant', error)
     );
   }
+
+  goBack() {
+    this.router.navigate(['/restaurant-list']); // Replace with your previous route
+  }
 }
