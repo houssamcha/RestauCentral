@@ -45,6 +45,9 @@ export class RestaurantListComponent {
       );
     }
   }
+  editRestaurant(id?: number): void {
+    this.router.navigate(['/edit-restaurant', id]);
+  }
 
 }
 
