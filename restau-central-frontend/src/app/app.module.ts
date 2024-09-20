@@ -7,13 +7,15 @@ import { RestaurantListComponent } from './restaurant-list/restaurant-list.compo
 import { AjouterRestaurantComponent } from './ajouter-restaurant/ajouter-restaurant.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RestaurantEditComponent } from './restaurant-edit/restaurant-edit.component';
+import { OffreListComponent } from './offre-list/offre-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RestaurantListComponent,
     AjouterRestaurantComponent,
-    RestaurantEditComponent
+    RestaurantEditComponent,
+    OffreListComponent
   ],
   imports: [
     BrowserModule,
