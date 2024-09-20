@@ -49,5 +49,9 @@ export class RestaurantListComponent {
     this.router.navigate(['/edit-restaurant', id]);
   }
 
+  viewOffers(restaurantId: number) {
+    this.router.navigate(['/offres', restaurantId]);
+  }
+
 }
 
