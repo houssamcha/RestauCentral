@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { OffreService } from 'src/app/services/OffreService';  // Assure-toi d'avoir défini ce service
+import { Offre } from 'src/app/Model/Offre.model';  // Import du modèle Offre
 
 @Component({
   selector: 'app-offre-list',
   templateUrl: './offre-list.component.html',
   styleUrls: ['./offre-list.component.css']
 })
-
 export class OffreListComponent implements OnInit {
-  restaurantId: number;
+  restaurantId: number | null = null;
   offres: Offre[] = [];
 
   constructor(
@@ -23,7 +25,9 @@ export class OffreListComponent implements OnInit {
   }
 
   loadOffres() {
-    this.offreService.getOffresByRestaurant(this.restaurantId)
-      .subscribe(offres => this.offres = offres);
+    if (this.restaurantId) {
+      this.offreService.getOffresByRestaurantId(this.restaurantId)
+        .subscribe(offres => this.offres = offres);
+    }
   }
 }

@@ -8,6 +8,7 @@ import { AjouterRestaurantComponent } from './ajouter-restaurant/ajouter-restaur
 import { HttpClientModule } from '@angular/common/http';
 import { RestaurantEditComponent } from './restaurant-edit/restaurant-edit.component';
 import { OffreListComponent } from './offre-list/offre-list.component';
+import { RestaurantDetailsComponent } from './restaurant-details/restaurant-details.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { OffreListComponent } from './offre-list/offre-list.component';
     RestaurantListComponent,
     AjouterRestaurantComponent,
     RestaurantEditComponent,
-    OffreListComponent
+    OffreListComponent,
+    RestaurantDetailsComponent
   ],
   imports: [
     BrowserModule,
