@@ -4,6 +4,7 @@ import { AjouterRestaurantComponent } from './ajouter-restaurant/ajouter-restaur
 import { RestaurantListComponent } from './restaurant-list/restaurant-list.component';
 import { RestaurantEditComponent } from './restaurant-edit/restaurant-edit.component';
 import { OffreListComponent } from './offre-list/offre-list.component';
+import { RestaurantDetailsComponent } from './restaurant-details/restaurant-details.component';
 
 const routes: Routes = [
   { path: 'add-restaurant', component: AjouterRestaurantComponent },
