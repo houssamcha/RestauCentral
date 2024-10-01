@@ -5,6 +5,8 @@ import { RestaurantListComponent } from './restaurant-list/restaurant-list.compo
 import { RestaurantEditComponent } from './restaurant-edit/restaurant-edit.component';
 import { OffreListComponent } from './offre-list/offre-list.component';
 import { RestaurantDetailsComponent } from './restaurant-details/restaurant-details.component';
+import { LoginComponent } from './login/login.component';
+
 
 const routes: Routes = [
   { path: 'add-restaurant', component: AjouterRestaurantComponent },
@@ -13,6 +15,7 @@ const routes: Routes = [
   { path: 'edit-restaurant/:id', component: RestaurantEditComponent },
   { path: 'restaurants/:id/offres', component: OffreListComponent },
   { path: 'restaurants/:id/details', component: RestaurantDetailsComponent },
+  { path: 'login', component: LoginComponent },
 ];
 
 
