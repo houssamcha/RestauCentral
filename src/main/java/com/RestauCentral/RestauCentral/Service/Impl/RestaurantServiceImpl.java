@@ -40,11 +40,10 @@ public class RestaurantServiceImpl implements RestaurantService {
         Optional<Restaurant> existingRestaurant = restaurantRepository.findById(id);
         if (existingRestaurant.isPresent()) {
             Restaurant updatedRestaurant = existingRestaurant.get();
-            updatedRestaurant.setName(restaurant.getName());
-            updatedRestaurant.setAddress(restaurant.getAddress());
-            updatedRestaurant.setPhone(restaurant.getPhone());
+            updatedRestaurant.setUsername(restaurant.getUsername());
+            updatedRestaurant.setAdresse(restaurant.getAdresse());
             updatedRestaurant.setCommandes(restaurant.getCommandes());
-            updatedRestaurant.setServiceLivraison(restaurant.getServiceLivraison());
+//            updatedRestaurant.set(restaurant.getServiceLivraison());
             return restaurantRepository.save(updatedRestaurant);
         }
         return null;

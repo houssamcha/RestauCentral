@@ -1,6 +1,6 @@
-package com.platformtrasnport.platformtransport.config;
+package com.RestauCentral.RestauCentral.config;
 
-import com.platformtrasnport.platformtransport.service.JwtService;
+import com.RestauCentral.RestauCentral.Service.JwtService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

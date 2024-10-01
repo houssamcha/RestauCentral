@@ -1,4 +1,4 @@
-package com.platformtrasnport.platformtransport.config;
+package com.RestauCentral.RestauCentral.config;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +11,6 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 
 @Configuration
 @EnableWebSecurity
@@ -20,26 +19,26 @@ public class SecurityConfig {
 
     @Autowired
     private JwtAuthenticationFilter jwtAuthFilter;
+
     @Autowired
     private AuthenticationProvider authenticationProvider;
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .csrf(csrf -> csrf.disable())
+                .csrf(csrf -> csrf.disable())  // Disable CSRF for stateless API
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/auth/register/registerEmploye", "/auth/authenticate","/auth/register/registerAdmin").permitAll()
-                        .requestMatchers("/api/offres-transport/approved", "/api/reservations/create","/api/utilisateurs/all","/api/utilisateurs/{id}","/api/reservations/**","/api/rapports/**").hasAuthority("EMPLOYE")
-                        .requestMatchers("/api/employeurs/**", "/auth/register/registerEmployeur","/api/utilisateurs/**","/api/reservations/count-by-employe").hasAuthority("ADMIN")
-                        .requestMatchers("/api/reservations/**").hasAuthority("EMPLOYEUR")
+                        .requestMatchers("/auth/authenticate", "/auth/register/registerUtilisateur").permitAll()
+                        .requestMatchers("/offres/**").hasAuthority("RESTAURANT")
+                        .requestMatchers("/restaurants/**","/auth/register/registerRestaurant").hasAuthority("ADMIN")
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(session -> session
-                        .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                        .sessionCreationPolicy(SessionCreationPolicy.STATELESS)  // No session management
                 )
-                .authenticationProvider(authenticationProvider)
-                .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
-                .cors(Customizer.withDefaults());
+                .authenticationProvider(authenticationProvider)  // Set the authentication provider
+                .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)  // Add JWT filter
+                .cors(Customizer.withDefaults());  // Enable CORS
 
         return http.build();
     }

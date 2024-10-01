@@ -1,4 +1,4 @@
-package com.platformtrasnport.platformtransport.auth;
+package com.RestauCentral.RestauCentral.auth;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,5 +10,5 @@ import lombok.NoArgsConstructor;
 public class AuthenticationRequest {
 
     private String email;
-    private String Password;
+    private String password;
 }

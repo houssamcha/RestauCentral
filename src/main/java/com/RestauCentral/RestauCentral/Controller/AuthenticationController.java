@@ -1,13 +1,12 @@
 package com.RestauCentral.RestauCentral.Controller;
 
 import com.RestauCentral.RestauCentral.Service.AuthenticationService;
-import com.platformtrasnport.platformtransport.auth.AuthenticationRequest;
+import com.RestauCentral.RestauCentral.auth.AuthenticationRequest;
+import com.RestauCentral.RestauCentral.auth.RegisterRequest;
 import com.platformtrasnport.platformtransport.auth.AuthenticationResponse;
-import com.platformtrasnport.platformtransport.auth.RegisterRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 
 @RestController
 @RequestMapping("/auth")
@@ -17,13 +16,6 @@ public class AuthenticationController {
 
     private final AuthenticationService authService;
 
-    @PostMapping("/register/registerParticulier")
-    public ResponseEntity<AuthenticationResponse> registerParticulier(
-            @RequestBody RegisterRequest request
-    ) {
-        return ResponseEntity.ok(authService.registerParticulier(request));
-    }
-
     @PostMapping("/register/registerAdmin")
     public ResponseEntity<AuthenticationResponse> registerAdmin(
             @RequestBody RegisterRequest request
@@ -31,17 +23,18 @@ public class AuthenticationController {
         return ResponseEntity.ok(authService.registerAdmin(request));
     }
 
-    @PostMapping("/register/registerEmploye")
-    public ResponseEntity<AuthenticationResponse> registerTechnicien(
+    @PostMapping("/register/registerUtilisateur")
+    public ResponseEntity<AuthenticationResponse> registerUtilisateur(
             @RequestBody RegisterRequest request
     ) {
-        return ResponseEntity.ok(authService.registerEmploye(request));
+        return ResponseEntity.ok(authService.registerUtilisateur(request));
     }
-    @PostMapping("/register/registerEmployeur")
-    public ResponseEntity<AuthenticationResponse> registerEmployeur(
+
+    @PostMapping("/register/registerRestaurant")
+    public ResponseEntity<AuthenticationResponse> registerRestaurant(
             @RequestBody RegisterRequest request
     ) {
-        return ResponseEntity.ok(authService.registerEmployeur(request));
+        return ResponseEntity.ok(authService.registerRestaurant(request));
     }
 
     @PostMapping("/authenticate")
@@ -49,6 +42,5 @@ public class AuthenticationController {
             @RequestBody AuthenticationRequest request
     ) {
         return ResponseEntity.ok(authService.authenticate(request));
-
     }
 }

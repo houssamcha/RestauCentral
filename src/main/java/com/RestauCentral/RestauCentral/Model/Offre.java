@@ -24,7 +24,6 @@ public class Offre {
     @ManyToOne
     @JoinColumn(name = "restaurant_id")
     @JsonBackReference
-    //@JsonIgnore
     private Restaurant restaurant;
 
 

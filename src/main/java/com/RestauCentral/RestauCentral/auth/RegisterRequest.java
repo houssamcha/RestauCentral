@@ -1,4 +1,4 @@
-package com.platformtrasnport.platformtransport.auth;
+package com.RestauCentral.RestauCentral.auth;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,9 +11,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class RegisterRequest {
 
-    private String nom;
-    private String prenom;
-    private String ImgUrl;
+
+    private String username;
     private String email;
     private String password;
 }

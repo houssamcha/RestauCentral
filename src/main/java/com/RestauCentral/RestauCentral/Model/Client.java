@@ -1,23 +1,22 @@
 package com.RestauCentral.RestauCentral.Model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.RestauCentral.RestauCentral.Model.Enum.Role;
+import jakarta.persistence.*;
+import lombok.*;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.Collection;
 import java.util.List;
 
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
 
 @Entity
-public class Client {
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Inheritance(strategy = InheritanceType.JOINED)
+public class Client implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;       // Identifiant unique du client
@@ -26,12 +25,47 @@ public class Client {
     private String email;
     private String adresse;      // Adresse du client
     private String contact;      // Contact du client (numéro de téléphone ou email)
-    private int pointsFidelite;  // Points de fidélité du client
-    private List<Commande> commandes; // Liste des commandes passées par le client
+    private int pointsFidelite;
+
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
 
-    // Méthode pour effectuer une opération, par exemple passer une commande
-    public void operation() {
+    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
+    private List<Commande> commandes;
 
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return List.of(new SimpleGrantedAuthority(role.getAuthority()));
+    }
+    @Override
+    public String getPassword() {
+        return password;
+    }
+
+    @Override
+    public String getUsername() {
+        return email;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
     }
 }

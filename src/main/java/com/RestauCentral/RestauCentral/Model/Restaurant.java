@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -14,18 +15,12 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Restaurant {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-    private String name;
-    private String address;
-    private String phone;
-    private String commandes;
-    private String serviceLivraison;
+public class Restaurant extends Client {
 
     @OneToMany(mappedBy = "restaurant")
     @JsonManagedReference
     private List<Offre> offres;
 
+    @OneToMany(mappedBy = "restaurant")
+    private List<Commande> commandes;
 }

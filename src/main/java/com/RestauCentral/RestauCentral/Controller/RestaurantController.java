@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/restaurants")
+@RequestMapping("/restaurants")
 @CrossOrigin(origins = "http://localhost:4200")
 
 public class RestaurantController {
@@ -16,7 +16,7 @@ public class RestaurantController {
     @Autowired
     private RestaurantService restaurantService;
 
-    @GetMapping
+    @GetMapping("/all")
     public List<Restaurant> getAllRestaurants() {
         return restaurantService.getAllRestaurants();
     }

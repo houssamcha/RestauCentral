@@ -1,4 +1,4 @@
-package com.platformtrasnport.platformtransport.config;
+package com.RestauCentral.RestauCentral.config;
 
     import org.springframework.context.annotation.Bean;
     import org.springframework.context.annotation.Configuration;
