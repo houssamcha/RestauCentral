@@ -1,1 +1,31 @@
-<p>offre-list works!</p>
+<nav class="bg-white shadow">
+  <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+    <div class="flex justify-between h-16">
+      <div class="flex-shrink-0">
+        <h1 class="text-2xl font-bold text-red-600">RestauCentral</h1>
+      </div>
+      <div class="flex items-center">
+        <button class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded">
+          Login
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div *ngFor="let offre of offres" class="offre-card">
+    <div class="card">
+      <div class="card-header">
+        <h3>{{ offre.nom }}</h3>
+      </div>
+      <div class="card-body">
+        <p class="description">{{ offre.description }}</p>
+        <p class="price">Prix: <span>{{ offre.prix }}€</span></p>
+      </div>
+    </div>
+  </div>
+   
+  <div *ngIf="offres.length === 0" class="no-offre-message">
+    <p>Aucune offre disponible pour ce restaurant.</p>
+  </div>
+  

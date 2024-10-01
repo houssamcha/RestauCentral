@@ -1,39 +1,35 @@
 .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #2c3e50;
-  }
-  
-  .restaurant-card {
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  .restaurant-card h3 {
-    color: #34495e;
-    margin-bottom: 10px;
-  }
-  
-  .restaurant-card p {
-    margin: 5px 0;
-    font-size: 16px;
-  }
-  
-  strong {
-    color: #2c3e50;
-  }
-  
-  p {
-    color: #7f8c8d;
-  }
-  
-  
+  max-width: 800px;
+}
+
+nav {
+  background-color: #ffffff; /* Couleur de fond blanche */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre légère pour la navbar */
+}
+
+nav h1 {
+  color: #dc2626; /* Couleur rouge pour le titre */
+}
+
+nav button {
+  background-color: #fbbf24; /* Couleur jaune pour le bouton Login */
+  transition: background-color 0.3s ease; /* Transition pour un effet doux */
+}
+
+nav button:hover {
+  background-color: #f59e0b; /* Couleur jaune plus foncé au survol */
+}
+
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  background-color: #fff8e1;
+}
+
+button {
+  transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+}

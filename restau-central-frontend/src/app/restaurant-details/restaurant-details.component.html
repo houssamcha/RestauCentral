@@ -1,1 +1,11 @@
-<p>restaurant-details works!</p>
+<div *ngIf="restaurant">
+    <h1>{{ restaurant.name }}</h1>
+    <p>Adresse: {{ restaurant.address }}</p>
+    <p>Téléphone: {{ restaurant.phone }}</p>
+    <p>Commandes: {{ restaurant.commandes }}</p>
+    <p>Service Livraison: {{ restaurant.serviceLivraison }}</p>
+</div>
+
+  <div *ngIf="!restaurant">
+    <p>Chargement des détails du restaurant...</p>
+</div>

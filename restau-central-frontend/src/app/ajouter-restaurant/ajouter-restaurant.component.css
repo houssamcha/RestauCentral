@@ -1,0 +1,88 @@
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+input {
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus {
+    border-color: #fbbf24; /* Couleur jaune */
+    box-shadow: 0 0 0 0.2rem rgba(250, 204, 21, 0.5); /* Ombre jaune */
+}
+
+button {
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    filter: brightness(0.95);
+}
+
+.text-red-600 {
+    color: #c53030; /* Rouge foncé */
+}
+
+.text-yellow-600 {
+    color: #d69e2e; /* Jaune */
+}
+
+.bg-yellow-600 {
+    background-color: #d69e2e; /* Jaune */
+}
+
+.bg-yellow-700 {
+    background-color: #b7791f; /* Jaune foncé */
+}
+
+.bg-red-600 {
+    background-color: #c53030; /* Rouge */
+}
+
+.bg-red-700 {
+    background-color: #9b2c2c; /* Rouge foncé */
+}
+
+.rounded-md {
+    border-radius: 0.375rem;
+}
+
+.shadow-md {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.mb-4 {
+    margin-bottom: 1rem;
+}
+
+.p-2 {
+    padding: 0.5rem;
+}
+
+.py-2 {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.hover\:bg-yellow-700:hover {
+    background-color: #b7791f; /* Jaune foncé */
+}
+
+.focus\:ring-2:focus {
+    ring-width: 2px;
+}
+
+.focus\:ring-offset-2:focus {
+    ring-offset-width: 2px;
+}

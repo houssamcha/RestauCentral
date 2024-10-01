@@ -1,5 +1,6 @@
 package com.RestauCentral.RestauCentral.Model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -16,7 +17,7 @@ import java.util.List;
 public class Restaurant {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
     private String name;
     private String address;
     private String phone;
@@ -24,6 +25,7 @@ public class Restaurant {
     private String serviceLivraison;
 
     @OneToMany(mappedBy = "restaurant")
+    @JsonManagedReference
     private List<Offre> offres;
 
 }

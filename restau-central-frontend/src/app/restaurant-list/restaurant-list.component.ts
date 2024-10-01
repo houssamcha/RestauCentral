@@ -50,8 +50,10 @@ export class RestaurantListComponent {
   }
 
   viewOffers(restaurantId: number) {
-    this.router.navigate(['/offres', restaurantId]);
+    this.router.navigate(['/restaurants', restaurantId, 'offres']);
   }
+  
+  
 
 }
 
