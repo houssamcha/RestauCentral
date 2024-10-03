@@ -11,6 +11,7 @@ import { OffreListComponent } from './offre-list/offre-list.component';
 import { RestaurantDetailsComponent } from './restaurant-details/restaurant-details.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { RegisterComponent } from './register/register.component';
     OffreListComponent,
     RestaurantDetailsComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
