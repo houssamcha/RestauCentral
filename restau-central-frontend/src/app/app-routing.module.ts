@@ -21,8 +21,7 @@ const routes: Routes = [
   { path: 'restaurants/:id/details', component: RestaurantDetailsComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: 'dashboard/RESTAURANT', component: DashboardComponent, canActivate: [AuthGuard]},
 ];
 
 
