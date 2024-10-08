@@ -1,6 +1,9 @@
 package com.RestauCentral.RestauCentral.Service;
 
+import com.RestauCentral.RestauCentral.Model.Admin;
+import com.RestauCentral.RestauCentral.Model.Client;
 import com.RestauCentral.RestauCentral.Model.Enum.Role;
+import com.RestauCentral.RestauCentral.Model.Restaurant;
 import com.RestauCentral.RestauCentral.Model.Utilisateur;
 import com.RestauCentral.RestauCentral.Repository.ClientRepository;
 import com.RestauCentral.RestauCentral.auth.AuthenticationRequest;
@@ -16,32 +19,32 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class AuthenticationService {
 
-    private final ClientRepository userRepository;  // Repository to interact with database
-    private final PasswordEncoder passwordEncoder;      // For password encoding
-    private final JwtService jwtService;                // JWT utility service
+    private final ClientRepository clientRepository;  // Repository to interact with the database
+    private final PasswordEncoder passwordEncoder;    // For password encoding
+    private final JwtService jwtService;              // JWT utility service
     private final AuthenticationManager authenticationManager;  // For managing authentication
 
     public AuthenticationResponse registerAdmin(RegisterRequest request) {
-        Utilisateur utilisateur = new Utilisateur();
-        utilisateur.setUsername(request.getUsername());
-        utilisateur.setEmail(request.getEmail());
-        utilisateur.setPassword(passwordEncoder.encode(request.getPassword()));
-        utilisateur.setRole(Role.ADMIN);
-        userRepository.save(utilisateur);
+        Client admin = new Admin();  // Using Client as reference, Admin as instance
+        admin.setUsername(request.getUsername());
+        admin.setEmail(request.getEmail());
+        admin.setPassword(passwordEncoder.encode(request.getPassword()));
+        admin.setRole(Role.ADMIN);
+        clientRepository.save(admin);
 
-        var jwtToken = jwtService.generateToken(utilisateur, utilisateur.getId());
+        var jwtToken = jwtService.generateToken(admin, admin.getId());
         return AuthenticationResponse.builder()
                 .token(jwtToken)
                 .build();
     }
 
     public AuthenticationResponse registerUtilisateur(RegisterRequest request) {
-        Utilisateur utilisateur = new Utilisateur();
+        Client utilisateur = new Utilisateur();  // Using Client as reference, Utilisateur as instance
         utilisateur.setUsername(request.getUsername());
         utilisateur.setEmail(request.getEmail());
         utilisateur.setPassword(passwordEncoder.encode(request.getPassword()));
         utilisateur.setRole(Role.USER);
-        userRepository.save(utilisateur);
+        clientRepository.save(utilisateur);
 
         var jwtToken = jwtService.generateToken(utilisateur, utilisateur.getId());
         return AuthenticationResponse.builder()
@@ -50,14 +53,14 @@ public class AuthenticationService {
     }
 
     public AuthenticationResponse registerRestaurant(RegisterRequest request) {
-        Utilisateur utilisateur = new Utilisateur();
-        utilisateur.setUsername(request.getUsername());
-        utilisateur.setEmail(request.getEmail());
-        utilisateur.setPassword(passwordEncoder.encode(request.getPassword()));
-        utilisateur.setRole(Role.RESTAURANT);
-        userRepository.save(utilisateur);
+        Client restaurant = new Restaurant();  // Using Client as reference, Restaurant as instance
+        restaurant.setUsername(request.getUsername());
+        restaurant.setEmail(request.getEmail());
+        restaurant.setPassword(passwordEncoder.encode(request.getPassword()));
+        restaurant.setRole(Role.RESTAURANT);
+        clientRepository.save(restaurant);
 
-        var jwtToken = jwtService.generateToken(utilisateur, utilisateur.getId());
+        var jwtToken = jwtService.generateToken(restaurant, restaurant.getId());
         return AuthenticationResponse.builder()
                 .token(jwtToken)
                 .build();
@@ -71,12 +74,12 @@ public class AuthenticationService {
                 )
         );
 
-        var user = userRepository.findByEmail(request.getEmail());
-        var jwtToken = jwtService.generateToken(user, user.getId());
+        var client = clientRepository.findByEmail(request.getEmail());
+        var jwtToken = jwtService.generateToken(client, client.getId());
 
         return AuthenticationResponse.builder()
                 .token(jwtToken)
-                .userId(user.getId())
+                .userId(client.getId())
                 .build();
     }
 }

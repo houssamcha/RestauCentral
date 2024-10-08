@@ -17,10 +17,15 @@ import java.util.List;
 @Entity
 public class Restaurant extends Client {
 
+    private String name;
+    private String address;
+    private String phone;
+
+
     @OneToMany(mappedBy = "restaurant")
     @JsonManagedReference
     private List<Offre> offres;
 
-    @OneToMany(mappedBy = "restaurant")
-    private List<Commande> commandes;
+//    @OneToMany(mappedBy = "restaurant")
+//    private List<Commande> commandes;
 }

@@ -28,10 +28,9 @@ public class SecurityConfig {
         http
                 .csrf(csrf -> csrf.disable())  // Disable CSRF for stateless API
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/auth/authenticate", "/auth/register/registerUtilisateur").permitAll()
-                        .requestMatchers("/offres/**").hasAuthority("RESTAURANT")
-                        .requestMatchers("/restaurants/**","/auth/register/registerRestaurant").hasAuthority("ADMIN")
-                        .anyRequest().authenticated()
+                        .requestMatchers("/auth/**").permitAll()
+//                        .requestMatchers("/restaurants/**").hasAuthority("RESTAURANT")
+                        .anyRequest().permitAll()
                 )
                 .sessionManagement(session -> session
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS)  // No session management

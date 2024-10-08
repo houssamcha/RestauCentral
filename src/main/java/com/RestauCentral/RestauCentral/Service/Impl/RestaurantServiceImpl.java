@@ -22,11 +22,14 @@ public class RestaurantServiceImpl implements RestaurantService {
 
     @Override
     public Restaurant getRestaurantById(int id) {
-        return restaurantRepository.findById(id).orElse(null);
+        return restaurantRepository.findById(id).orElse(null); // consider handling this better
     }
 
     @Override
     public Restaurant addRestaurant(Restaurant restaurant) {
+        if (restaurant == null || restaurant.getName() == null || restaurant.getAddress() == null) {
+            throw new IllegalArgumentException("Restaurant name and address cannot be null");
+        }
         return restaurantRepository.save(restaurant);
     }
 
@@ -40,10 +43,15 @@ public class RestaurantServiceImpl implements RestaurantService {
         Optional<Restaurant> existingRestaurant = restaurantRepository.findById(id);
         if (existingRestaurant.isPresent()) {
             Restaurant updatedRestaurant = existingRestaurant.get();
-            updatedRestaurant.setUsername(restaurant.getUsername());
-            updatedRestaurant.setAdresse(restaurant.getAdresse());
-            updatedRestaurant.setCommandes(restaurant.getCommandes());
-//            updatedRestaurant.set(restaurant.getServiceLivraison());
+            if (restaurant.getName() != null) {
+                updatedRestaurant.setName(restaurant.getName());
+            }
+            if (restaurant.getAddress() != null) {
+                updatedRestaurant.setAddress(restaurant.getAddress());
+            }
+            updatedRestaurant.setOffres(restaurant.getOffres());
+            // Uncomment and implement if you have Commandes
+            // updatedRestaurant.setCommandes(restaurant.getCommandes());
             return restaurantRepository.save(updatedRestaurant);
         }
         return null;

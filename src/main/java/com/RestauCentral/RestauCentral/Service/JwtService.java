@@ -33,10 +33,11 @@ public class JwtService {
 
     public String generateToken(UserDetails userDetails, Long userId) {
         Map<String, Object> claims = new HashMap<>();
-        claims.put("roles", extractRoles(userDetails.getAuthorities()));
+        claims.put("roles", extractRoles(userDetails.getAuthorities())); // This should work as expected
         claims.put("userId", userId);
         return generateToken(claims, userDetails);
     }
+
 
     public String generateToken(Map<String, Object> extraClaims, UserDetails userDetails) {
         return Jwts

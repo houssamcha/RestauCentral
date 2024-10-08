@@ -19,9 +19,9 @@
         private Date dateCommande;
         private String statut; // Exemple : "En cours", "Livrée"
 
-        @ManyToOne
-        @JoinColumn(name = "restaurant_id", nullable = false)
-        private Restaurant restaurant;
+//        @ManyToOne
+//        @JoinColumn(name = "restaurant_id", nullable = false)
+//        private Restaurant restaurant;
 
         @ManyToOne
         @JoinColumn(name = "client_id")

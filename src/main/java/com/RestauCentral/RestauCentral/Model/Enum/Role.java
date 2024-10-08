@@ -2,7 +2,7 @@ package com.RestauCentral.RestauCentral.Model.Enum;
 
 import org.springframework.security.core.GrantedAuthority;
 
-public enum Role  implements GrantedAuthority {
+public enum Role implements GrantedAuthority {
     ADMIN,
     USER,
     RESTAURANT,
@@ -10,6 +10,7 @@ public enum Role  implements GrantedAuthority {
 
     @Override
     public String getAuthority() {
-        return name();
+        return this.name();
     }
+
 }
